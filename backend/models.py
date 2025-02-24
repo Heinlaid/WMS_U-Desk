@@ -46,6 +46,11 @@ class Detail(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('detail_category.id'))
     category = db.relationship('DetailCategory', back_populates='details')
     
+    # внешний ключ на Supplier
+    supplier_id = db.Column(db.Integer, db.ForeignKey('supplier.id'))
+    # Связь с Supplier (обратная связь)
+    supplier = db.relationship('Supplier', back_populates='details')
+    
     def __repr__(self):
         return f"<Detail {self.name}>"
 
@@ -58,7 +63,7 @@ class DetailCategory(db.Model):
     # Обратная связь: список деталей, принадлежащих данной категории
     details = db.relationship('Detail', back_populates='category')
     
-     def __repr__(self):
+    def __repr__(self):
         return f"<DetailCategory {self.name}>"
 
 from datetime import datetime
@@ -73,8 +78,8 @@ class Supplier(db.Model):
     phone = db.Column(db.String(20))  # Можно также использовать db.String(15) для номера телефона
     contact_person = db.Column(db.String(100))
 
-    # Связь с деталями (если поставщик поставляет несколько деталей)
-    details = db.relationship('Detail', backref='supplier', lazy=True)
+    # Связь с деталями
+    details = db.relationship('Detail', back_populates='supplier')
 
     def __repr__(self):
         return f"<Supplier {self.name}>"

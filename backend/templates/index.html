@@ -1,14 +1,53 @@
-<!-- backend/templates/index.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Inventory Management</title>
-    <link rel="stylesheet" href="/static/style.css"> <!-- если появится стиль -->
+    <title>Система управления запасами</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            opacity: 0.8;
+        }
+        .btn-products { background-color: #3498db; }
+        .btn-add-product { background-color: #2ecc71; }
+        .btn-home { background-color: #e74c3c; }
+    </style>
 </head>
 <body>
-    <h1>Добро пожаловать в систему управления запасами!</h1>
-    <p>Это стартовая страница вашего приложения.</p>
-    <script src="/static/script.js"></script> <!-- если добавите JS -->
+    <div class="container">
+        <h1>Добро пожаловать в систему управления запасами!</h1>
+        <p>Выберите действие:</p>
+
+        <a href="{{ url_for('products') }}" class="btn btn-products">Список товаров</a>
+        <a href="{{ url_for('new_product') }}" class="btn btn-add-product">Добавить новый товар</a>
+    </div>
 </body>
 </html>
