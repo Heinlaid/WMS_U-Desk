@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Создать заказ</title>
+</head>
+<body>
+    <h1>Создать заказ</h1>
+    <form method="POST">
+        <label>ID товара:</label>
+        <input type="number" name="product_id" required><br>
+        <label>ID клиента:</label>
+        <input type="number" name="customer_id" required><br>
+        <label>Количество:</label>
+        <input type="number" name="quantity" required><br>
+        <button type="submit">Создать заказ</button>
+    </form>
+    <a href="{{ url_for('orders') }}">Назад</a>
+</body>
+</html>

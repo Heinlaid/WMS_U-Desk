@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список заказов</title>
+</head>
+<body>
+    <h1>Список заказов</h1>
+    <a href="{{ url_for('new_order') }}">Добавить заказ</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Дата заказа</th>
+            <th>Статус</th>
+            <th>Товар</th>
+            <th>Клиент</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.order_date }}</td>
+            <td>{{ order.order_status }}</td>
+            <td>{{ order.product_id }}</td>
+            <td>{{ order.customer_id }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">На главную</a>
+</body>
+</html>

@@ -11,9 +11,7 @@
             background-color: #f4f4f4;
             text-align: center;
         }
-        h1 {
-            color: #333;
-        }
+        h1 { color: #333; }
         .container {
             width: 50%;
             margin: auto;
@@ -24,7 +22,7 @@
         }
         .btn {
             display: block;
-            width: 200px;
+            width: 250px;
             margin: 10px auto;
             padding: 10px;
             font-size: 16px;
@@ -33,21 +31,28 @@
             border-radius: 5px;
             transition: 0.3s;
         }
-        .btn:hover {
-            opacity: 0.8;
-        }
+        .btn:hover { opacity: 0.8; }
         .btn-products { background-color: #3498db; }
-        .btn-add-product { background-color: #2ecc71; }
-        .btn-home { background-color: #e74c3c; }
+        .btn-details { background-color: #2ecc71; }
+        .btn-orders { background-color: #e67e22; }
+        .btn-operations { background-color: #9b59b6; }
+        .btn-clients { background-color: #f39c12; }
+        .btn-suppliers { background-color: #d35400; }
+        .btn-categories { background-color: #34495e; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Добро пожаловать в систему управления запасами!</h1>
-        <p>Выберите действие:</p>
+        <p>Выберите раздел:</p>
 
-        <a href="{{ url_for('products') }}" class="btn btn-products">Список товаров</a>
-        <a href="{{ url_for('new_product') }}" class="btn btn-add-product">Добавить новый товар</a>
+        <a href="{{ url_for('products') }}" class="btn btn-products">Товары</a>
+        <a href="{{ url_for('details') }}" class="btn btn-details">Детали</a>
+        <a href="{{ url_for('categories') }}" class="btn btn-categories">Справочники</a>
+        <a href="{{ url_for('operations') }}" class="btn btn-operations">Операции</a>
+        <a href="{{ url_for('orders') }}" class="btn btn-orders">Заказы</a>
+        <a href="{{ url_for('clients') }}" class="btn btn-clients">Клиенты</a>
+        <a href="{{ url_for('suppliers') }}" class="btn btn-suppliers">Поставщики</a>
     </div>
 </body>
 </html>

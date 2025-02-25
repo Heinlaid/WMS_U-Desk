@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить операцию</title>
+</head>
+<body>
+    <h1>Добавить операцию</h1>
+    <form method="POST">
+        <label>Тип операции:</label>
+        <select name="operation_type">
+            <option value="приход">Приход</option>
+            <option value="расход">Расход</option>
+        </select><br>
+        <label>Количество:</label>
+        <input type="number" name="changed_quantity" required><br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{{ url_for('operations') }}">Назад</a>
+</body>
+</html>

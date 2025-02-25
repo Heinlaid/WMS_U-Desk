@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список поставщиков</title>
+</head>
+<body>
+    <h1>Список поставщиков</h1>
+    <a href="{{ url_for('new_supplier') }}">Добавить поставщика</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Адрес</th>
+            <th>Телефон</th>
+            <th>Контактное лицо</th>
+        </tr>
+        {% for supplier in suppliers %}
+        <tr>
+            <td>{{ supplier.id }}</td>
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.address }}</td>
+            <td>{{ supplier.phone }}</td>
+            <td>{{ supplier.contact_person }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">На главную</a>
+</body>
+</html>

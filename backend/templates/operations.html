@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список операций</title>
+</head>
+<body>
+    <h1>Список операций</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Тип операции</th>
+            <th>Изменённое количество</th>
+            <th>Дата операции</th>
+            <th>Деталь/Товар</th>
+        </tr>
+        {% for operation in operations %}
+        <tr>
+            <td>{{ operation.id }}</td>
+            <td>{{ operation.operation_type }}</td>
+            <td>{{ operation.changed_quantity }}</td>
+            <td>{{ operation.operation_date }}</td>
+            <td>
+                {% if operation.product_id %}
+                    Товар (ID: {{ operation.product_id }})
+                {% elif operation.detail_id %}
+                    Деталь (ID: {{ operation.detail_id }})
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">На главную</a>
+</body>
+</html>

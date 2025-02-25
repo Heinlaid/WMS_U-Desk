@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить категорию</title>
+</head>
+<body>
+    <h1>Добавить категорию</h1>
+    <form method="POST">
+        <label>Название:</label>
+        <input type="text" name="name" required><br>
+        <label>Описание:</label>
+        <input type="text" name="description"><br>
+        <label>Тип категории:</label>
+        <select name="category_type">
+            <option value="product">Категория товара</option>
+            <option value="detail">Категория детали</option>
+        </select><br>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="{{ url_for('categories') }}">Назад</a>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список деталей</title>
+</head>
+<body>
+    <h1>Список деталей</h1>
+    <a href="{{ url_for('new_detail') }}">Добавить деталь</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Описание</th>
+            <th>Количество</th>
+            <th>Цена</th>
+            <th>Действия</th>
+        </tr>
+        {% for detail in details %}
+        <tr>
+            <td>{{ detail.id }}</td>
+            <td>{{ detail.name }}</td>
+            <td>{{ detail.description }}</td>
+            <td>{{ detail.stock_quantity }}</td>
+            <td>{{ detail.price }}</td>
+            <td>
+                <a href="{{ url_for('edit_detail', id=detail.id) }}">Редактировать</a> |
+                <form action="{{ url_for('delete_detail', id=detail.id) }}" method="POST" style="display:inline;">
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}" class="btn btn-home">На главную</a>
+</body>
+</html>

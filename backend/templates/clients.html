@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список клиентов</title>
+</head>
+<body>
+    <h1>Список клиентов</h1>
+    <a href="{{ url_for('new_client') }}">Добавить клиента</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Имя</th>
+            <th>Адрес</th>
+            <th>Телефон</th>
+            <th>Контактное лицо</th>
+        </tr>
+        {% for client in clients %}
+        <tr>
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.phone }}</td>
+            <td>{{ client.contact_person }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('index') }}">На главную</a>
+</body>
+</html>
